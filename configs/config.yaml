@@ -5,21 +5,23 @@ data:
   ma_masks_dir: "data/raw/masks/microaneurysms"
   split_dir: "data/splits"
   processed_dir: "data/processed"
+  labels_file: "data/disease_labels.csv"
 
 # Model parameters
 model:
-  name: "UNet"
+  name: "DiseaseClassifier"
   in_channels: 3
-  out_channels: 2          # vessel, microaneurysm
+  num_classes: 5          # Normal, DR, Glaucoma, Cataract, AMD
   features: [64, 128, 256, 512]
+  diseases: ["Normal", "Diabetic Retinopathy", "Glaucoma", "Cataract", "Age-related Macular Degeneration"]
 
 # Training hyperparameters
 training:
-  batch_size: 4             # Reduced batch size for stability if images are large
-  epochs: 1
-  learning_rate: 0.001
-  device: "cpu"            # Set to cpu since cuda might not be available or setup
-  num_workers: 0           # Set to 0 for Windows stability
+  batch_size: 8
+  epochs: 10
+  learning_rate: 0.0001
+  device: "cpu"
+  num_workers: 0
   save_dir: "models"
   log_interval: 10
 
