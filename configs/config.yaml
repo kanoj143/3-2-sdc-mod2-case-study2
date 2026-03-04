@@ -1,0 +1,31 @@
+# Data paths
+data:
+  raw_images_dir: "data/raw/images"
+  vessel_masks_dir: "data/raw/masks/vessels"
+  ma_masks_dir: "data/raw/masks/microaneurysms"
+  split_dir: "data/splits"
+  processed_dir: "data/processed"
+
+# Model parameters
+model:
+  name: "UNet"
+  in_channels: 3
+  out_channels: 2          # vessel, microaneurysm
+  features: [64, 128, 256, 512]
+
+# Training hyperparameters
+training:
+  batch_size: 4             # Reduced batch size for stability if images are large
+  epochs: 1
+  learning_rate: 0.001
+  device: "cpu"            # Set to cpu since cuda might not be available or setup
+  num_workers: 0           # Set to 0 for Windows stability
+  save_dir: "models"
+  log_interval: 10
+
+# Augmentations
+augmentation:
+  horizontal_flip: true
+  vertical_flip: true
+  rotation: 30
+  brightness_contrast: true

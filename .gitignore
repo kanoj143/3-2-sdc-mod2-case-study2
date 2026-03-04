@@ -1,0 +1,24 @@
+# Models and Weights
+models/
+*.pth
+*.onnx
+*.weights
+
+# Data
+data/
+data/raw/
+data/processed/
+data/splits/
+
+# Execution logs and summaries
+runs/
+logs/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS/IDE
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
