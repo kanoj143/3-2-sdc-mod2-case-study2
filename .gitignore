@@ -1,14 +1,12 @@
-# Models and Weights
+# Data
+data/raw/images/
+data/processed/
 models/
+runs/
 *.pth
 *.onnx
 *.weights
 
-# Data
-data/
-data/raw/
-data/processed/
-data/splits/
 
 # Execution logs and summaries
 runs/
